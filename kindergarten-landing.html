@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Частный детский сад «Алтын Бала» — Алматы</title>
+<style>
+:root{
+  --bg:#fbf6ec; --surface:#ffffff; --text:#2b2420; --muted:#7c7064;
+  --accent:#c8702f; --accent-2:#1f8a7a; --accent-3:#e9c468; --line:#ead9bd;
+  --gold:#caa236;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1814; --surface:#28221c; --text:#f3ece0; --muted:#bcab96;
+    --accent:#e08a46; --accent-2:#35b09d; --accent-3:#6b5728; --line:#3e3426;
+    --gold:#d9b85a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1814; --surface:#28221c; --text:#f3ece0; --muted:#bcab96;
+  --accent:#e08a46; --accent-2:#35b09d; --accent-3:#6b5728; --line:#3e3426;
+  --gold:#d9b85a;
+  color-scheme: dark;
+}
+.ornament-strip{height:10px;width:100%;background-repeat:repeat-x;background-size:40px 10px;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10'%3E%3Cpath d='M0 10 Q5 0 10 10 Q15 0 20 10 Q25 0 30 10 Q35 0 40 10' stroke='%23c8702f' stroke-width='2' fill='none'/%3E%3C/svg%3E");}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Segoe UI',Verdana,Arial,sans-serif;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);}
+html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px;}
+header{position:sticky;top:0;z-index:10;background:var(--surface);border-bottom:1px solid var(--line);
+  padding-top:env(safe-area-inset-top,0px);}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:14px;flex-wrap:wrap;}
+.logo{font-size:1.4em;font-weight:800;letter-spacing:.5px;color:var(--accent-2);}
+.nav a.cta{background:var(--accent);color:#1c1a17;padding:10px 18px;border-radius:30px;font-weight:700;}
+.nav-links{display:flex;gap:22px;font-weight:600;color:var(--muted);}
+@media(max-width:800px){.nav-links{display:none;}}
+.lang-switch{display:flex;gap:6px;}
+.langbtn{border:1px solid var(--line);background:var(--bg);color:var(--text);border-radius:20px;
+  padding:5px 11px;font-size:.78em;font-weight:700;cursor:pointer;}
+.langbtn.active{background:var(--accent-2);color:#fff;border-color:var(--accent-2);}
+
+.hero{padding:60px 0 50px;background:
+  radial-gradient(circle at 20% 20%, var(--accent-3) 0%, transparent 55%),
+  radial-gradient(circle at 85% 10%, var(--accent-2) 0%, transparent 35%);}
+.hero-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;}
+@media(max-width:800px){.hero-grid{grid-template-columns:1fr;}}
+.hero h1{font-size:2.2em;margin:0 0 14px;line-height:1.2;}
+.hero p{color:var(--muted);max-width:560px;margin:0 0 20px;font-size:1.05em;}
+.crit{display:flex;flex-wrap:wrap;gap:10px;}
+.crit-item{background:var(--surface);border:1px solid var(--line);border-radius:30px;padding:8px 14px;font-size:.9em;font-weight:600;}
+.hero-form{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 16px 40px -20px rgba(0,0,0,.25);}
+.hero-form h3{margin:0 0 14px;text-align:center;}
+.hero-form input,.hero-form select{width:100%;padding:11px 13px;margin-bottom:10px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--text);}
+.hero-form button{width:100%;padding:13px;border:none;border-radius:9px;background:var(--accent);color:#1c1a17;font-weight:800;cursor:pointer;}
+.gallery{padding:34px 0;}
+.gallery-grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.gcard{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-weight:700;font-size:.85em;text-align:center;}
+.gcard svg{width:100%;display:block;}
+.gcard span{display:block;padding:10px 8px;}
+.btn{display:inline-block;background:var(--accent);color:#1c1a17;padding:14px 30px;border-radius:30px;
+  font-weight:700;box-shadow:0 8px 20px -8px var(--accent);}
+.btn.alt{background:var(--accent-2);color:#fff;box-shadow:0 8px 20px -8px var(--accent-2);}
+
+section{padding:50px 0;}
+h2{text-align:center;font-size:1.7em;margin-bottom:34px;}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;}
+.card .ico{font-size:2em;margin-bottom:10px;}
+.card h3{margin:0 0 8px;font-size:1.05em;}
+.card p{color:var(--muted);font-size:.93em;margin:0;}
+
+.steps{counter-reset:step;display:grid;gap:18px;}
+.step{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);
+  border-radius:14px;padding:18px 20px;}
+.step .num{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--accent);
+  color:#1c1a17;font-weight:800;display:flex;align-items:center;justify-content:center;}
+.step p{margin:0;color:var(--muted);}
+
+.timeline{display:grid;gap:10px;}
+.trow{display:grid;grid-template-columns:140px 1fr;gap:14px;padding:12px 16px;background:var(--surface);
+  border:1px solid var(--line);border-radius:10px;align-items:center;}
+.trow .time{font-weight:700;color:var(--accent-2);}
+.trow p{margin:0;color:var(--muted);font-size:.93em;}
+
+.price-card{max-width:420px;margin:0 auto;background:var(--surface);border:2px solid var(--accent);
+  border-radius:20px;padding:30px;text-align:center;}
+.price-card .sum{font-size:2em;font-weight:800;color:var(--accent-2);margin:6px 0 18px;}
+.price-card ul{list-style:none;padding:0;margin:0 0 22px;text-align:left;color:var(--muted);}
+.price-card li{padding:8px 0;border-bottom:1px dashed var(--line);}
+.price-card li:before{content:"✓ ";color:var(--accent-2);font-weight:800;}
+
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 20px;margin-bottom:12px;}
+.faq summary{font-weight:700;cursor:pointer;}
+.faq p{color:var(--muted);margin:10px 0 0;}
+
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:30px;max-width:560px;margin:0 auto;}
+.contact input, .contact select{width:100%;padding:12px 14px;margin-bottom:12px;border-radius:10px;
+  border:1px solid var(--line);background:var(--bg);color:var(--text);font-size:1em;}
+.contact button{width:100%;padding:14px;border:none;border-radius:10px;background:var(--accent);
+  color:#1c1a17;font-weight:800;font-size:1em;cursor:pointer;}
+.note{text-align:center;color:var(--muted);font-size:.85em;margin-top:30px;}
+
+footer{border-top:1px solid var(--line);padding:30px 0;text-align:center;color:var(--muted);font-size:.9em;}
+.tabs{display:flex;gap:10px;justify-content:center;margin-bottom:20px;}
+.tabbtn{padding:10px 20px;border-radius:30px;border:1px solid var(--line);background:var(--bg);color:var(--text);font-weight:700;cursor:pointer;}
+.tabbtn.active{background:var(--accent);color:#1c1a17;border-color:var(--accent);}
+.tabpane{max-width:640px;margin:0 auto;text-align:center;color:var(--muted);}
+</style>
+<script>
+const i18n = {
+ru:{
+nav_program:"Программа", nav_day:"Режим дня", nav_price:"Цены", nav_faq:"Вопросы", nav_cta:"Записаться на экскурсию",
+hero_h1:"Частный детский сад в Алматы,<br>где ребёнку хорошо",
+hero_p:"Тёплая атмосфера, внимательные педагоги и продуманная программа адаптации — мы заботимся о каждом малыше, как о своём.",
+crit1:"👩‍🏫 Опытные педагоги", crit2:"🧩 Группы до 20 детей", crit3:"🥗 Полноценное питание", crit4:"🧠 Психолог в штате",
+hero_form_h3:"Записаться на экскурсию", ph_name:"Имя", ph_phone:"Телефон", age_default:"Возраст ребёнка",
+age1:"1 год",age2:"2 года",age3:"3 года",age4:"4 года",age5:"5 лет",age6:"6 лет",
+hero_form_btn:"Оставить заявку", hero_thanks:"Спасибо! Перезвоним в течение дня.",
+gal1:"Условия пребывания", gal2:"Безопасность", gal3:"Питание", gal4:"Программа и подход", gal5:"Адаптация", gal6:"Здоровье",
+approach_h2:"Программа и подход", tab_prog_btn:"Программа", tab_appr_btn:"Подход",
+tab_prog_text:"Мы строим занятия с учётом задач развития ребёнка — в каждом возрасте нужно освоить определённые навыки и перейти на новый уровень. Делаем упор на крепкую базу знаний, но всегда соразмеряем объём материала с возрастом ребёнка.",
+tab_appr_text:"Наша система строится на взаимном уважении — ребёнка к педагогу и педагога к ребёнку. Основные инструменты — проектная работа и исследовательская деятельность. Педагоги умеют задавать рамки и давать свободу выбора внутри них, не лишая детство лёгкости.",
+extra_h2:"Что ещё есть у нас",
+extra1_h3:"Бассейн", extra1_p:"Плавание укрепляет физическое и психическое здоровье ребёнка.",
+extra2_h3:"Соляная шахта", extra2_p:"Микроклимат соляной комнаты помогает при аллергиях и укрепляет иммунитет.",
+extra3_h3:"Каратэ", extra3_p:"Снимает психологическое напряжение и раскрывает способности ребёнка.",
+extra4_h3:"Хореография", extra4_p:"Развивает пластику, чувство ритма и уверенность на сцене.",
+video_h2:"Отзывы родителей", video1_h3:"Видео-отзыв №1", video1_p:"Смотреть на YouTube",
+video2_h3:"Видео-отзыв №2", video2_p:"Смотреть на YouTube",
+why_h2:"Почему выбирают нас",
+why1_h3:"Малые группы", why1_p:"До 20 деток в группе — педагог успевает уделить внимание каждому.",
+why2_h3:"Полноценное питание", why2_p:"Сбалансированное меню, витаминные перекусы, учёт аллергий.",
+why3_h3:"Психолог в штате", why3_p:"Сопровождение адаптации, диагностика и индивидуальная работа с детьми.",
+why4_h3:"Безопасность", why4_p:"Круглосуточное видеонаблюдение и контроль доступа на территорию.",
+why5_h3:"Проектная деятельность", why5_p:"Обучение через творчество, интерес ребёнка и исследовательскую работу.",
+why6_h3:"Доп. секции", why6_p:"Бассейн, шахматы, хореография, каратэ и английский язык.",
+steps_h2:"Этапы адаптации",
+step1:"Разрабатываем для малыша индивидуальную программу адаптации.",
+step2:"Вовлекаем родителей — вместе планируем график посещения от 1,5–2 часов до полного дня.",
+step3:"Знакомим ребёнка с садом в течение трёхдневной прогулки рядом с родителем.",
+step4:"Постепенно увеличиваем время пребывания в детском саду.",
+step5:"На протяжении всего периода с ребёнком работает наш психолог.",
+day_h2:"Режим дня",
+t1:"Приём детей, осмотр, утренняя зарядка, игры.", t2:"Развивающие занятия в утреннем блоке.",
+t3:"Прогулка на свежем воздухе, подвижные игры.", t4:"Гигиенические процедуры, обед.",
+t5:"Дневной сон.", t6:"Полдник, дополнительные занятия, творческие игры.",
+t7:"Свободная игра, подготовка к возвращению домой.",
+price_h2:"Стоимость", price_title:"Детский сад, полный день", price_sum:"от 3 750 000 ₸ / год",
+price_li1:"Пребывание с 8:00 до 18:00", price_li2:"Группы до 20 детей", price_li3:"Перерасчёт при болезни ребёнка",
+price_li4:"Вступительный взнос на материально-техническое обеспечение",
+price_li5:"Ежегодный взнос на обновление материалов и пособий", price_btn:"Узнать подробнее",
+faq_h2:"Частые вопросы",
+faq1_q:"Как записаться на экскурсию?", faq1_a:"Оставьте заявку в форме ниже или позвоните нам — мы согласуем удобное время и покажем сад лично, ответим на все вопросы.",
+faq2_q:"Есть ли поддержка психолога?", faq2_a:"Да. Психолог проводит диагностику, разрабатывает программу сопровождения, согласовывает её с родителями и отслеживает динамику развития ребёнка.",
+faq3_q:"Как проходит адаптация?", faq3_a:"Мы начинаем с коротких прогулок рядом с родителем и постепенно увеличиваем время пребывания — обычно к концу второй недели ребёнок готов остаться на целый день.",
+contact_h2:"Оставить заявку на экскурсию", contact_btn:"Отправить заявку", contact_thanks:"Спасибо! Мы свяжемся с вами.",
+contact_note:"Это демо-форма — для реальной отправки нужно подключить её к вашей почте, CRM или мессенджеру.",
+footer_text:"Частный детский сад «Алтын Бала» · Алматы · тел. +7 (777) 000-00-00"
+},
+kk:{
+nav_program:"Бағдарлама", nav_day:"Күн тәртібі", nav_price:"Бағалар", nav_faq:"Сұрақтар", nav_cta:"Экскурсияға жазылу",
+hero_h1:"Алматыдағы жекеменшік балабақша —<br>балаңызға жайлы орта",
+hero_p:"Жылы атмосфера, қамқор тәрбиешілер және ойластырылған бейімделу бағдарламасы — біз әр баланы өз баламыздай қабылдаймыз.",
+crit1:"👩‍🏫 Тәжірибелі тәрбиешілер", crit2:"🧩 20 балаға дейінгі топтар", crit3:"🥗 Толыққанды тамақтану", crit4:"🧠 Штаттағы психолог",
+hero_form_h3:"Экскурсияға жазылу", ph_name:"Аты", ph_phone:"Телефон", age_default:"Баланың жасы",
+age1:"1 жас",age2:"2 жас",age3:"3 жас",age4:"4 жас",age5:"5 жас",age6:"6 жас",
+hero_form_btn:"Өтінім қалдыру", hero_thanks:"Рақмет! Бір күн ішінде хабарласамыз.",
+gal1:"Болу шарттары", gal2:"Қауіпсіздік", gal3:"Тамақтану", gal4:"Бағдарлама мен тәсіл", gal5:"Бейімделу", gal6:"Денсаулық",
+approach_h2:"Бағдарлама мен тәсіл", tab_prog_btn:"Бағдарлама", tab_appr_btn:"Тәсіл",
+tab_prog_text:"Біз сабақтарды баланың даму міндеттерін ескере отырып құрамыз — әр жаста белгілі бір дағдыларды меңгеру керек. Біз білімнің берік негізіне басымдық береміз, бірақ материал көлемін баланың жасына сәйкестендіреміз.",
+tab_appr_text:"Біздің оқыту жүйесі өзара құрметке негізделген — бала тәрбиешіге, тәрбиеші балаға. Негізгі құралдар — жобалық жұмыс және зерттеу қызметі. Тәрбиешілеріміз балалық шақтың жеңілдігін сақтай отырып, шекара қоя біледі және сол шекара ішінде таңдау еркіндігін береді.",
+extra_h2:"Тағы не бар",
+extra1_h3:"Бассейн", extra1_p:"Жүзу баланың дене және психикалық денсаулығын нығайтады.",
+extra2_h3:"Тұз үңгірі", extra2_p:"Тұз бөлмесінің микроклиматы аллергияға қарсы көмектеседі және иммунитетті нығайтады.",
+extra3_h3:"Каратэ", extra3_p:"Психологиялық кернеуді басады және баланың қабілеттерін ашады.",
+extra4_h3:"Хореография", extra4_p:"Пластиканы, ырғақ сезімін және сахналық сенімділікті дамытады.",
+video_h2:"Ата-аналар пікірлері", video1_h3:"Бейне-пікір №1", video1_p:"YouTube-та көру",
+video2_h3:"Бейне-пікір №2", video2_p:"YouTube-та көру",
+why_h2:"Неге бізді таңдайды",
+why1_h3:"Шағын топтар", why1_p:"Топта 20-ға дейін бала — тәрбиеші әрқайсысына көңіл бөле алады.",
+why2_h3:"Толыққанды тамақтану", why2_p:"Теңгерімді мәзір, дәрумендік тағамдар, аллергияны ескеру.",
+why3_h3:"Штаттағы психолог", why3_p:"Бейімделуді сүйемелдеу, диагностика және балалармен жеке жұмыс.",
+why4_h3:"Қауіпсіздік", why4_p:"Тәулік бойы бейнебақылау және аумаққа кіруді бақылау.",
+why5_h3:"Жобалық қызмет", why5_p:"Шығармашылық, баланың қызығушылығы және зерттеу жұмысы арқылы оқыту.",
+why6_h3:"Қосымша секциялар", why6_p:"Бассейн, шахмат, хореография, каратэ және ағылшын тілі.",
+steps_h2:"Бейімделу кезеңдері",
+step1:"Бала үшін жеке бейімделу бағдарламасын әзірлейміз.",
+step2:"Ата-аналарды тартамыз — бірге 1,5–2 сағаттан толық күнге дейінгі келу кестесін жоспарлаймыз.",
+step3:"Баланы ата-анасымен бірге үш күндік серуен барысында балабақшамен таныстырамыз.",
+step4:"Балабақшада болу уақытын біртіндеп арттырамыз.",
+step5:"Бейімделу кезеңінде баламен психологымыз жұмыс істейді.",
+day_h2:"Күн тәртібі",
+t1:"Балаларды қабылдау, қарау, таңертеңгі жаттығу, ойындар.", t2:"Таңертеңгі блоктағы дамыту сабақтары.",
+t3:"Таза ауада серуендеу, қозғалмалы ойындар.", t4:"Гигиеналық рәсімдер, түскі ас.",
+t5:"Түскі ұйқы.", t6:"Бесін ас, қосымша сабақтар, шығармашылық ойындар.",
+t7:"Еркін ойын, үйге қайтуға дайындық.",
+price_h2:"Құны", price_title:"Балабақша, толық күн", price_sum:"3 750 000 ₸ / жылдан бастап",
+price_li1:"8:00-ден 18:00-ге дейін болу", price_li2:"20 балаға дейінгі топтар", price_li3:"Бала ауырған кезде қайта есептеу",
+price_li4:"Материалдық-техникалық қамтамасыз етуге кіру жарнасы",
+price_li5:"Материалдар мен құралдарды жаңартуға жылдық жарна", price_btn:"Толығырақ білу",
+faq_h2:"Жиі қойылатын сұрақтар",
+faq1_q:"Экскурсияға қалай жазылуға болады?", faq1_a:"Төмендегі форма арқылы өтінім қалдырыңыз немесе бізге қоңырау шалыңыз — біз ыңғайлы уақытты келісіп, балабақшаны өз көзіңізбен көрсетеміз және барлық сұрақтарға жауап береміз.",
+faq2_q:"Психолог қолдауы бар ма?", faq2_a:"Иә. Психолог диагностика жүргізеді, сүйемелдеу бағдарламасын әзірлейді, оны ата-анамен келіседі және баланың даму динамикасын қадағалайды.",
+faq3_q:"Бейімделу қалай өтеді?", faq3_a:"Біз ата-анасымен бірге қысқа серуендерден бастаймыз және болу уақытын біртіндеп арттырамыз — әдетте екінші аптаның соңына қарай бала күні бойы қалуға дайын болады.",
+contact_h2:"Экскурсияға өтінім қалдыру", contact_btn:"Өтінім жіберу", contact_thanks:"Рақмет! Біз сізбен хабарласамыз.",
+contact_note:"Бұл демо-форма — нақты жіберу үшін оны поштаңызға, CRM-ге немесе мессенджерге қосу қажет.",
+footer_text:"Жекеменшік балабақша «Алтын Бала» · Алматы · тел. +7 (777) 000-00-00"
+},
+en:{
+nav_program:"Program", nav_day:"Daily routine", nav_price:"Pricing", nav_faq:"FAQ", nav_cta:"Book a tour",
+hero_h1:"Private kindergarten in Almaty<br>where your child feels at home",
+hero_p:"A warm atmosphere, attentive teachers and a thoughtful adaptation programme — we care for every child as our own.",
+crit1:"👩‍🏫 Experienced teachers", crit2:"🧩 Groups up to 20 kids", crit3:"🥗 Balanced meals", crit4:"🧠 In-house psychologist",
+hero_form_h3:"Book a tour", ph_name:"Name", ph_phone:"Phone", age_default:"Child's age",
+age1:"1 year",age2:"2 years",age3:"3 years",age4:"4 years",age5:"5 years",age6:"6 years",
+hero_form_btn:"Submit request", hero_thanks:"Thank you! We'll call you back within a day.",
+gal1:"Conditions", gal2:"Safety", gal3:"Nutrition", gal4:"Program & approach", gal5:"Adaptation", gal6:"Health",
+approach_h2:"Program & Approach", tab_prog_btn:"Program", tab_appr_btn:"Approach",
+tab_prog_text:"We design lessons around each child's developmental stage — every age calls for mastering certain skills. We focus on a solid knowledge base while keeping the material age-appropriate.",
+tab_appr_text:"Our teaching approach is built on mutual respect — child to teacher and teacher to child. The main tools are project work and research activities. Our teachers know how to set boundaries while giving freedom of choice within them, without taking away the lightness of childhood.",
+extra_h2:"What else we offer",
+extra1_h3:"Swimming pool", extra1_p:"Swimming strengthens a child's physical and mental health.",
+extra2_h3:"Salt cave", extra2_p:"The salt room's microclimate helps with allergies and boosts immunity.",
+extra3_h3:"Karate", extra3_p:"Relieves psychological tension and brings out the child's abilities.",
+extra4_h3:"Choreography", extra4_p:"Develops grace, a sense of rhythm and stage confidence.",
+video_h2:"Parent reviews", video1_h3:"Video review #1", video1_p:"Watch on YouTube",
+video2_h3:"Video review #2", video2_p:"Watch on YouTube",
+why_h2:"Why choose us",
+why1_h3:"Small groups", why1_p:"Up to 20 children per group — the teacher has time for everyone.",
+why2_h3:"Balanced meals", why2_p:"Balanced menu, vitamin snacks, allergy awareness.",
+why3_h3:"In-house psychologist", why3_p:"Adaptation support, assessment and individual work with children.",
+why4_h3:"Safety", why4_p:"Round-the-clock video surveillance and access control.",
+why5_h3:"Project-based learning", why5_p:"Learning through creativity, the child's interests and research work.",
+why6_h3:"Extra activities", why6_p:"Swimming pool, chess, choreography, karate and English.",
+steps_h2:"Adaptation stages",
+step1:"We create an individual adaptation programme for your child.",
+step2:"We involve parents — together we plan a schedule from 1.5–2 hours up to a full day.",
+step3:"We introduce the child to the kindergarten over a three-day walk alongside a parent.",
+step4:"We gradually increase the time spent at the kindergarten.",
+step5:"Throughout the adaptation period, our psychologist works with the child.",
+day_h2:"Daily routine",
+t1:"Drop-off, health check, morning exercise, games.", t2:"Developmental lessons in the morning block.",
+t3:"Outdoor walk, active games.", t4:"Hygiene routine, lunch.",
+t5:"Nap time.", t6:"Afternoon snack, extra lessons, creative games.",
+t7:"Free play, getting ready to go home.",
+price_h2:"Pricing", price_title:"Kindergarten, full day", price_sum:"from ₸3,750,000 / year",
+price_li1:"Hours 8:00–18:00", price_li2:"Groups up to 20 children", price_li3:"Fee adjustment in case of illness",
+price_li4:"Enrollment fee for facilities & equipment",
+price_li5:"Annual fee for updating materials and supplies", price_btn:"Learn more",
+faq_h2:"FAQ",
+faq1_q:"How do I book a tour?", faq1_a:"Leave a request in the form below or call us — we'll arrange a convenient time, show you the kindergarten in person and answer all your questions.",
+faq2_q:"Is psychologist support available?", faq2_a:"Yes. The psychologist conducts assessments, develops a support programme, coordinates it with parents and tracks the child's developmental progress.",
+faq3_q:"How does adaptation work?", faq3_a:"We start with short walks alongside a parent and gradually increase the time spent — usually by the end of the second week the child is ready to stay the full day.",
+contact_h2:"Request a tour", contact_btn:"Submit request", contact_thanks:"Thank you! We'll be in touch.",
+contact_note:"This is a demo form — to actually receive submissions, connect it to your email, CRM or messenger.",
+footer_text:"Private kindergarten «Altyn Bala» · Almaty · tel. +7 (777) 000-00-00"
+}
+};
+let curLang = 'ru';
+function setLang(lang){
+  curLang = lang;
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    const k = el.getAttribute('data-i18n');
+    if(i18n[lang][k] !== undefined) el.innerHTML = i18n[lang][k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    const k = el.getAttribute('data-i18n-ph');
+    if(i18n[lang][k] !== undefined) el.placeholder = i18n[lang][k];
+  });
+  document.querySelectorAll('.langbtn').forEach(function(b){
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+}
+function showTab(name, btn){
+  document.getElementById('tab-prog').style.display = name==='prog' ? '' : 'none';
+  document.getElementById('tab-appr').style.display = name==='appr' ? '' : 'none';
+  document.querySelectorAll('.tabbtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+function submitHero(form){
+  form.querySelector('button').textContent = i18n[curLang].hero_thanks;
+  form.querySelector('button').disabled = true;
+  return false;
+}
+function submitContact(form){
+  form.querySelector('button').textContent = i18n[curLang].contact_thanks;
+  form.querySelector('button').disabled = true;
+  return false;
+}
+window.addEventListener('DOMContentLoaded', function(){ setLang('ru'); });
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="logo">🌻 Алтын Бала</div>
+    <div class="nav-links">
+      <a href="#program" data-i18n="nav_program">Программа</a>
+      <a href="#day" data-i18n="nav_day">Режим дня</a>
+      <a href="#price" data-i18n="nav_price">Цены</a>
+      <a href="#faq" data-i18n="nav_faq">Вопросы</a>
+    </div>
+    <div class="lang-switch">
+      <button class="langbtn" data-lang="kk" onclick="setLang('kk')">ҚАЗ</button>
+      <button class="langbtn active" data-lang="ru" onclick="setLang('ru')">РУС</button>
+      <button class="langbtn" data-lang="en" onclick="setLang('en')">ENG</button>
+    </div>
+    <a class="cta" href="#contact" data-i18n="nav_cta">Записаться на экскурсию</a>
+  </div>
+  <div class="ornament-strip"></div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 data-i18n="hero_h1">Частный детский сад в Алматы,<br>где ребёнку хорошо</h1>
+      <p data-i18n="hero_p">Тёплая атмосфера, внимательные педагоги и продуманная программа адаптации — мы заботимся о каждом малыше, как о своём.</p>
+      <div class="crit">
+        <div class="crit-item" data-i18n="crit1">👩‍🏫 Опытные педагоги</div>
+        <div class="crit-item" data-i18n="crit2">🧩 Группы до 20 детей</div>
+        <div class="crit-item" data-i18n="crit3">🥗 Полноценное питание</div>
+        <div class="crit-item" data-i18n="crit4">🧠 Психолог в штате</div>
+      </div>
+    </div>
+    <form class="hero-form" onsubmit="event.preventDefault(); submitHero(this);">
+      <h3 data-i18n="hero_form_h3">Записаться на экскурсию</h3>
+      <input type="text" data-i18n-ph="ph_name" placeholder="Имя" required>
+      <input type="tel" data-i18n-ph="ph_phone" placeholder="Телефон" required>
+      <select>
+        <option value="" data-i18n="age_default">Возраст ребёнка</option>
+        <option data-i18n="age1">1 год</option><option data-i18n="age2">2 года</option><option data-i18n="age3">3 года</option>
+        <option data-i18n="age4">4 года</option><option data-i18n="age5">5 лет</option><option data-i18n="age6">6 лет</option>
+      </select>
+      <button type="submit" data-i18n="hero_form_btn">Оставить заявку</button>
+    </form>
+  </div>
+</section>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="grid gallery-grid">
+      <a href="#day" class="gcard">
+        <svg viewBox="0 0 100 70"><rect width="100" height="70" fill="var(--accent-3)"/>
+          <path d="M20 55 L50 20 L80 55 Z" fill="var(--accent-2)"/><rect x="46" y="18" width="8" height="10" fill="var(--accent-2)"/>
+          <path d="M30 55 Q50 40 70 55" stroke="var(--accent)" stroke-width="2.5" fill="none"/></svg>
+        <span data-i18n="gal1">Условия пребывания</span>
+      </a>
+      <a href="#" class="gcard">
+        <svg viewBox="0 0 100 70"><rect width="100" height="70" fill="var(--accent-3)"/>
+          <circle cx="50" cy="35" r="20" fill="none" stroke="var(--accent-2)" stroke-width="3"/>
+          <circle cx="50" cy="35" r="11" fill="none" stroke="var(--accent)" stroke-width="3"/>
+          <line x1="50" y1="15" x2="50" y2="55" stroke="var(--accent-2)" stroke-width="2"/>
+          <line x1="30" y1="35" x2="70" y2="35" stroke="var(--accent-2)" stroke-width="2"/></svg>
+        <span data-i18n="gal2">Безопасность</span>
+      </a>
+      <a href="#" class="gcard">
+        <svg viewBox="0 0 100 70"><rect width="100" height="70" fill="var(--accent-3)"/>
+          <path d="M30 50 Q22 35 30 22 Q38 35 30 50 Z" fill="var(--accent)"/>
+          <path d="M70 50 Q62 35 70 22 Q78 35 70 50 Z" fill="var(--accent-2)"/>
+          <path d="M50 50 Q42 32 50 16 Q58 32 50 50 Z" fill="var(--accent)"/></svg>
+        <span data-i18n="gal3">Питание</span>
+      </a>
+      <a href="#approach" class="gcard">
+        <svg viewBox="0 0 100 70"><rect width="100" height="70" fill="var(--accent-3)"/>
+          <path d="M25 20 q0 -12 12 -12 q12 0 12 12 q0 10 -12 20 q-12 -10 -12 -20z" fill="var(--accent-2)"/>
+          <path d="M51 20 q0 -12 12 -12 q12 0 12 12 q0 10 -12 20 q-12 -10 -12 -20z" fill="var(--accent)"/>
+          <path d="M38 40 q0 -12 12 -12 q12 0 12 12 q0 10 -12 20 q-12 -10 -12 -20z" fill="var(--gold)"/></svg>
+        <span data-i18n="gal4">Программа и подход</span>
+      </a>
+      <a href="#" class="gcard">
+        <svg viewBox="0 0 100 70"><rect width="100" height="70" fill="var(--accent-3)"/>
+          <path d="M20 50 Q35 15 50 50 Q65 15 80 50" stroke="var(--accent)" stroke-width="4" fill="none"/>
+          <circle cx="50" cy="15" r="5" fill="var(--gold)"/></svg>
+        <span data-i18n="gal5">Адаптация</span>
+      </a>
+      <a href="#" class="gcard">
+        <svg viewBox="0 0 100 70"><rect width="100" height="70" fill="var(--accent-3)"/>
+          <circle cx="50" cy="35" r="18" fill="none" stroke="var(--accent-2)" stroke-width="3"/>
+          <g stroke="var(--gold)" stroke-width="2">
+            <line x1="50" y1="12" x2="50" y2="20"/><line x1="50" y1="50" x2="50" y2="58"/>
+            <line x1="27" y1="35" x2="35" y2="35"/><line x1="65" y1="35" x2="73" y2="35"/>
+          </g></svg>
+        <span data-i18n="gal6">Здоровье</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="approach" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <h2 data-i18n="approach_h2">Программа и подход</h2>
+    <div class="tabs">
+      <button class="tabbtn active" onclick="showTab('prog',this)" data-i18n="tab_prog_btn">Программа</button>
+      <button class="tabbtn" onclick="showTab('appr',this)" data-i18n="tab_appr_btn">Подход</button>
+    </div>
+    <div id="tab-prog" class="tabpane">
+      <p data-i18n="tab_prog_text">Мы строим занятия с учётом задач развития ребёнка — в каждом возрасте нужно освоить определённые навыки и перейти на новый уровень. Делаем упор на крепкую базу знаний, но всегда соразмеряем объём материала с возрастом ребёнка.</p>
+    </div>
+    <div id="tab-appr" class="tabpane" style="display:none;">
+      <p data-i18n="tab_appr_text">Наша система строится на взаимном уважении — ребёнка к педагогу и педагога к ребёнку. Основные инструменты — проектная работа и исследовательская деятельность. Педагоги умеют задавать рамки и давать свободу выбора внутри них, не лишая детство лёгкости.</p>
+    </div>
+  </div>
+</section>
+
+<section id="extra">
+  <div class="wrap">
+    <h2 data-i18n="extra_h2">Что ещё есть у нас</h2>
+    <div class="grid">
+      <a href="#" class="card" style="text-decoration:none;">
+        <svg viewBox="0 0 100 60" style="width:100%;border-radius:10px;margin-bottom:10px;"><rect width="100" height="60" fill="var(--accent-2)"/>
+          <path d="M0 42 q8 -8 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 V60 H0 Z" fill="#fff" opacity=".45"/>
+          <path d="M0 50 q8 -8 16 0 t16 0 t16 0 t16 0 t16 0 t16 0 V60 H0 Z" fill="#fff" opacity=".3"/></svg>
+        <h3 data-i18n="extra1_h3">Бассейн</h3><p data-i18n="extra1_p">Плавание укрепляет физическое и психическое здоровье ребёнка.</p>
+      </a>
+      <a href="#" class="card" style="text-decoration:none;">
+        <svg viewBox="0 0 100 60" style="width:100%;border-radius:10px;margin-bottom:10px;"><rect width="100" height="60" fill="var(--accent-3)"/>
+          <circle cx="50" cy="30" r="18" fill="none" stroke="var(--gold)" stroke-width="3"/>
+          <circle cx="50" cy="30" r="9" fill="var(--gold)"/></svg>
+        <h3 data-i18n="extra2_h3">Соляная шахта</h3><p data-i18n="extra2_p">Микроклимат соляной комнаты помогает при аллергиях и укрепляет иммунитет.</p>
+      </a>
+      <a href="#" class="card" style="text-decoration:none;">
+        <svg viewBox="0 0 100 60" style="width:100%;border-radius:10px;margin-bottom:10px;"><rect width="100" height="60" fill="var(--accent-3)"/>
+          <path d="M50 8 L58 28 L50 48 L42 28 Z" fill="var(--accent)"/>
+          <circle cx="50" cy="28" r="6" fill="var(--accent-2)"/></svg>
+        <h3 data-i18n="extra3_h3">Каратэ</h3><p data-i18n="extra3_p">Снимает психологическое напряжение и раскрывает способности ребёнка.</p>
+      </a>
+      <a href="#" class="card" style="text-decoration:none;">
+        <svg viewBox="0 0 100 60" style="width:100%;border-radius:10px;margin-bottom:10px;"><rect width="100" height="60" fill="var(--accent-2)"/>
+          <path d="M50 10 Q38 22 50 34 Q62 22 50 10 Z" fill="#fff" opacity=".7"/>
+          <path d="M50 34 L50 52" stroke="#fff" stroke-width="3" opacity=".7"/></svg>
+        <h3 data-i18n="extra4_h3">Хореография</h3><p data-i18n="extra4_p">Развивает пластику, чувство ритма и уверенность на сцене.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="video" style="background:var(--surface);border-top:1px solid var(--line);">
+  <div class="wrap">
+    <h2 data-i18n="video_h2">Отзывы родителей</h2>
+    <div class="grid">
+      <a class="card" style="text-decoration:none;" href="https://youtube.com" target="_blank" rel="noopener">
+        <div style="font-size:2.4em;">▶️</div><h3 data-i18n="video1_h3">Видео-отзыв №1</h3><p data-i18n="video1_p">Смотреть на YouTube</p>
+      </a>
+      <a class="card" style="text-decoration:none;" href="https://youtube.com" target="_blank" rel="noopener">
+        <div style="font-size:2.4em;">▶️</div><h3 data-i18n="video2_h3">Видео-отзыв №2</h3><p data-i18n="video2_p">Смотреть на YouTube</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="program">
+  <div class="wrap">
+    <h2 data-i18n="why_h2">Почему выбирают нас</h2>
+    <div class="grid">
+      <div class="card"><div class="ico">🧸</div><h3 data-i18n="why1_h3">Малые группы</h3><p data-i18n="why1_p">До 20 деток в группе — педагог успевает уделить внимание каждому.</p></div>
+      <div class="card"><div class="ico">🥗</div><h3 data-i18n="why2_h3">Полноценное питание</h3><p data-i18n="why2_p">Сбалансированное меню, витаминные перекусы, учёт аллергий.</p></div>
+      <div class="card"><div class="ico">🧠</div><h3 data-i18n="why3_h3">Психолог в штате</h3><p data-i18n="why3_p">Сопровождение адаптации, диагностика и индивидуальная работа с детьми.</p></div>
+      <div class="card"><div class="ico">🛡️</div><h3 data-i18n="why4_h3">Безопасность</h3><p data-i18n="why4_p">Круглосуточное видеонаблюдение и контроль доступа на территорию.</p></div>
+      <div class="card"><div class="ico">🎨</div><h3 data-i18n="why5_h3">Проектная деятельность</h3><p data-i18n="why5_p">Обучение через творчество, интерес ребёнка и исследовательскую работу.</p></div>
+      <div class="card"><div class="ico">🏊</div><h3 data-i18n="why6_h3">Доп. секции</h3><p data-i18n="why6_p">Бассейн, шахматы, хореография, каратэ и английский язык.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <h2 data-i18n="steps_h2">Этапы адаптации</h2>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><p data-i18n="step1">Разрабатываем для малыша индивидуальную программу адаптации.</p></div>
+      <div class="step"><div class="num">2</div><p data-i18n="step2">Вовлекаем родителей — вместе планируем график посещения от 1,5–2 часов до полного дня.</p></div>
+      <div class="step"><div class="num">3</div><p data-i18n="step3">Знакомим ребёнка с садом в течение трёхдневной прогулки рядом с родителем.</p></div>
+      <div class="step"><div class="num">4</div><p data-i18n="step4">Постепенно увеличиваем время пребывания в детском саду.</p></div>
+      <div class="step"><div class="num">5</div><p data-i18n="step5">На протяжении всего периода с ребёнком работает наш психолог.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="day">
+  <div class="wrap">
+    <h2 data-i18n="day_h2">Режим дня</h2>
+    <div class="timeline">
+      <div class="trow"><div class="time">8:00–9:00</div><p data-i18n="t1">Приём детей, осмотр, утренняя зарядка, игры.</p></div>
+      <div class="trow"><div class="time">9:15–10:30</div><p data-i18n="t2">Развивающие занятия в утреннем блоке.</p></div>
+      <div class="trow"><div class="time">10:30–12:00</div><p data-i18n="t3">Прогулка на свежем воздухе, подвижные игры.</p></div>
+      <div class="trow"><div class="time">12:00–13:00</div><p data-i18n="t4">Гигиенические процедуры, обед.</p></div>
+      <div class="trow"><div class="time">13:00–15:00</div><p data-i18n="t5">Дневной сон.</p></div>
+      <div class="trow"><div class="time">15:00–17:00</div><p data-i18n="t6">Полдник, дополнительные занятия, творческие игры.</p></div>
+      <div class="trow"><div class="time">17:00–18:00</div><p data-i18n="t7">Свободная игра, подготовка к возвращению домой.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="price" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <h2 data-i18n="price_h2">Стоимость</h2>
+    <div class="price-card">
+      <div data-i18n="price_title">Детский сад, полный день</div>
+      <div class="sum" data-i18n="price_sum">от 3 750 000 ₸ / год</div>
+      <ul>
+        <li data-i18n="price_li1">Пребывание с 8:00 до 18:00</li>
+        <li data-i18n="price_li2">Группы до 20 детей</li>
+        <li data-i18n="price_li3">Перерасчёт при болезни ребёнка</li>
+        <li data-i18n="price_li4">Вступительный взнос на материально-техническое обеспечение</li>
+        <li data-i18n="price_li5">Ежегодный взнос на обновление материалов и пособий</li>
+      </ul>
+      <a class="btn alt" href="#contact" data-i18n="price_btn">Узнать подробнее</a>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 data-i18n="faq_h2">Частые вопросы</h2>
+    <div class="faq">
+      <details open>
+        <summary data-i18n="faq1_q">Как записаться на экскурсию?</summary>
+        <p data-i18n="faq1_a">Оставьте заявку в форме ниже или позвоните нам — мы согласуем удобное время и покажем сад лично, ответим на все вопросы.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq2_q">Есть ли поддержка психолога?</summary>
+        <p data-i18n="faq2_a">Да. Психолог проводит диагностику, разрабатывает программу сопровождения, согласовывает её с родителями и отслеживает динамику развития ребёнка.</p>
+      </details>
+      <details>
+        <summary data-i18n="faq3_q">Как проходит адаптация?</summary>
+        <p data-i18n="faq3_a">Мы начинаем с коротких прогулок рядом с родителем и постепенно увеличиваем время пребывания — обычно к концу второй недели ребёнок готов остаться на целый день.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--surface);border-top:1px solid var(--line);">
+  <div class="wrap">
+    <h2 data-i18n="contact_h2">Оставить заявку на экскурсию</h2>
+    <form class="contact" onsubmit="event.preventDefault(); submitContact(this);">
+      <input type="text" data-i18n-ph="ph_name" placeholder="Имя" required>
+      <input type="tel" data-i18n-ph="ph_phone" placeholder="Телефон" required>
+      <input type="email" placeholder="Email">
+      <select>
+        <option value="" data-i18n="age_default">Возраст ребёнка</option>
+        <option data-i18n="age1">1 год</option><option data-i18n="age2">2 года</option><option data-i18n="age3">3 года</option>
+        <option data-i18n="age4">4 года</option><option data-i18n="age5">5 лет</option><option data-i18n="age6">6 лет</option>
+      </select>
+      <button type="submit" data-i18n="contact_btn">Отправить заявку</button>
+    </form>
+    <p class="note" data-i18n="contact_note">Это демо-форма — для реальной отправки нужно подключить её к вашей почте, CRM или мессенджеру.</p>
+  </div>
+</section>
+
+<div class="ornament-strip"></div>
+<footer>
+  <div class="wrap" data-i18n="footer_text">
+    Частный детский сад «Алтын Бала» · Алматы &nbsp;·&nbsp; тел. +7 (777) 000-00-00
+  </div>
+</footer>
+
+</body>
+</html>
